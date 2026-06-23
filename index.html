@@ -282,9 +282,25 @@
     .hero-grid { display: grid; gap: clamp(0.8rem, 2.4vw, 2rem); }
     .hero-copy { display: grid; align-content: center; gap: clamp(0.55rem, 1.55vw, 1rem); }
     .hero .eyebrow { font-size: 0.68rem; letter-spacing: 0.16em; }
-    .hero h1 { font-size: clamp(2.55rem, 6.4vw, 5.6rem); max-width: 8.8ch; }
-    .hero h1 span { color: var(--color-primary); }
-    .hero-lede { max-width: 32rem; font-size: clamp(0.9rem, 1.45vw, 1.05rem); line-height: 1.45; }
+    .hero-title {
+      max-width: min(660px, 100%);
+      display: grid;
+      gap: 0.03em;
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 5.65vw, 5.05rem);
+      font-weight: 700;
+      line-height: 0.88;
+    }
+    .hero-title .title-main,
+    .hero-title .title-accent { display: block; }
+    .hero-title .title-accent {
+      color: var(--color-primary);
+      font-family: var(--font-serif-soft);
+      font-weight: 700;
+      font-style: italic;
+      transform: translateX(0.055em);
+    }
+    .hero-lede { max-width: 28rem; font-size: clamp(0.88rem, 1.3vw, 1rem); line-height: 1.38; }
     .price-row {
       display: inline-flex;
       width: fit-content;
@@ -861,6 +877,7 @@
       .nav-links { display: flex; }
       .nav-actions .nav-cta { display: inline-flex; }
       .hero-grid { grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr); align-items: center; }
+      .hero-copy { align-self: stretch; align-content: start; padding-top: clamp(2.25rem, 11vh, 7rem); }
       .split { grid-template-columns: 0.92fr 1.08fr; }
       .process-board { grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr); }
       .process-board .steps { grid-template-columns: 1fr; }
@@ -889,7 +906,13 @@
       .hero-grid { gap: 0.18rem; }
       .hero-copy { gap: 0.16rem; }
       .hero .eyebrow { font-size: 0.42rem; letter-spacing: 0.14em; }
-      .hero h1 { font-size: clamp(1.12rem, 5.35vw, 1.42rem); max-width: 15.5ch; }
+      .hero-title {
+        max-width: 100%;
+        gap: 0.01em;
+        font-size: clamp(1.72rem, 8.25vw, 2.24rem);
+        line-height: 0.88;
+      }
+      .hero-title .title-accent { transform: translateX(0.035em); }
       .hero-lede {
         display: -webkit-box;
         max-width: 22rem;
@@ -1021,7 +1044,10 @@
       <div class="container hero-grid">
         <div class="hero-copy" data-reveal>
           <span class="eyebrow">Best seller / Golden Garden</span>
-          <h1>Sunlit florals, <span>all-day ease.</span></h1>
+          <h1 class="hero-title">
+            <span class="title-main">Sunlit florals</span>
+            <span class="title-accent">all-day ease</span>
+          </h1>
           <p class="hero-lede">Yellow florals, V neckline, elbow sleeves, and a 50 in maxi fall.</p>
           <div class="price-row" aria-label="Price">
             <span class="sale-price">Rs. 1,599</span>
