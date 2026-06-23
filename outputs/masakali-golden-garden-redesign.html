@@ -449,40 +449,44 @@
     .review-card p { color: var(--color-primary); font-family: var(--font-serif-soft); font-size: 1rem; line-height: 1.04; }
     .review-card span { color: var(--color-muted); font-size: 0.62rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
 
-    /* === TRUST CARDS === */
-    .trust-strip { background: var(--color-bg-sunken); border-bottom: 1px solid var(--color-border); padding: clamp(0.9rem, 3vw, 2.1rem) 0; overflow: hidden; }
-    .trust-grid { display: grid; gap: 0.6rem; }
+    /* === TRUST TAGS === */
+    .trust-strip {
+      background: rgba(244, 239, 226, 0.78);
+      border-block: 1px solid var(--color-border);
+      padding: clamp(0.48rem, 1.35vw, 0.95rem) 0;
+      overflow: hidden;
+    }
+    .trust-grid { display: grid; gap: 0.42rem; }
     .trust-item {
       position: relative;
-      min-height: 105px;
-      display: grid;
-      align-content: end;
-      gap: 0.22rem;
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      gap: 0.54rem;
       overflow: hidden;
-      border: 1px solid rgba(3, 76, 41, 0.18);
-      border-radius: var(--radius-md);
-      background: var(--color-bg);
-      padding: 0.72rem;
-      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(3, 76, 41, 0.16);
+      border-radius: 999px;
+      background: rgba(255, 254, 248, 0.7);
+      padding: 0.46rem 0.62rem;
+      box-shadow: 0 12px 30px rgba(3, 76, 41, 0.08);
+      backdrop-filter: blur(16px);
     }
     .trust-item::before {
-      content: attr(data-kicker);
-      position: absolute;
-      left: 0.75rem;
-      top: 0.35rem;
-      color: rgba(3, 76, 41, 0.08);
-      font-family: var(--font-display);
-      font-size: clamp(3.35rem, 12.5vw, 5.6rem);
-      line-height: 0.8;
-      font-weight: 700;
+      content: "";
+      width: 0.38rem;
+      height: 0.38rem;
+      flex: 0 0 auto;
+      border-radius: 999px;
+      background: var(--color-primary);
+      box-shadow: 0 0 0 5px rgba(3, 76, 41, 0.08);
     }
-    .trust-item:nth-child(2) { background: var(--color-primary); color: #fff; transform: rotate(-1.25deg); }
-    .trust-item:nth-child(2)::before { color: rgba(255, 255, 255, 0.13); }
+    .trust-item:nth-child(2) { background: rgba(3, 76, 41, 0.92); color: #fff; }
+    .trust-item:nth-child(2)::before { background: var(--color-bg); box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.13); }
     .trust-item:nth-child(2) span { color: rgba(255, 255, 255, 0.78); }
-    .trust-item:nth-child(3) { background: var(--color-marigold); transform: rotate(1deg); }
-    .trust-item:nth-child(4) { background: var(--color-secondary); transform: rotate(-0.65deg); }
-    .trust-item strong { position: relative; color: inherit; font-family: var(--font-display); font-size: clamp(1.55rem, 6.3vw, 2.8rem); line-height: 0.86; }
-    .trust-item span { position: relative; color: var(--color-muted); font-size: 0.78rem; font-weight: 900; }
+    .trust-item:nth-child(3) { background: rgba(246, 213, 86, 0.56); }
+    .trust-item:nth-child(4) { background: rgba(248, 201, 214, 0.54); }
+    .trust-item strong { position: relative; color: inherit; font-family: var(--font-display); font-size: clamp(1.02rem, 2.9vw, 1.32rem); line-height: 0.9; white-space: nowrap; }
+    .trust-item span { position: relative; color: var(--color-muted); font-size: 0.58rem; font-weight: 900; line-height: 1.05; }
 
     /* === SECTIONS === */
     section { scroll-margin-top: 90px; }
@@ -964,12 +968,11 @@
       .review-card { width: 212px; min-height: 94px; padding: 0.68rem; }
       .review-card p { font-size: 0.86rem; }
       .review-card span { font-size: 0.5rem; }
-      .trust-strip { padding: 0.7rem 0 0.85rem; }
-      .trust-grid { gap: 0.46rem; }
-      .trust-item { min-height: 88px; padding: 0.5rem; }
-      .trust-item:nth-child(2),
-      .trust-item:nth-child(3),
-      .trust-item:nth-child(4) { transform: none; }
+      .trust-strip { padding: 0.44rem 0 0.52rem; }
+      .trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.34rem; }
+      .trust-item { min-height: 44px; padding: 0.36rem 0.48rem; gap: 0.42rem; }
+      .trust-item strong { font-size: 0.96rem; }
+      .trust-item span { font-size: 0.5rem; }
       .pain-card { min-height: 360px; }
       .process-visual { min-height: 420px; }
       .steps { grid-template-columns: 1fr; }
@@ -1110,10 +1113,10 @@
 
     <section class="trust-strip" aria-label="Trust signals">
       <div class="container trust-grid">
-        <div class="trust-item" data-kicker="7"><strong>7 days</strong><span>Hassle-free returns</span></div>
-        <div class="trust-item" data-kicker="S"><strong>S-XXXL</strong><span>Full size run available</span></div>
-        <div class="trust-item" data-kicker="500"><strong>500+</strong><span>Unique floral prints</span></div>
-        <div class="trust-item" data-kicker="IN"><strong>India</strong><span>Manufactured by Bhumika Fashion</span></div>
+        <div class="trust-item"><strong>7 days</strong><span>Hassle-free returns</span></div>
+        <div class="trust-item"><strong>S-XXXL</strong><span>Full size run available</span></div>
+        <div class="trust-item"><strong>500+</strong><span>Unique floral prints</span></div>
+        <div class="trust-item"><strong>India</strong><span>Manufactured by Bhumika Fashion</span></div>
       </div>
     </section>
 
@@ -1152,6 +1155,70 @@
             <article class="benefit-card"><strong>Elbow sleeve</strong><p>Coverage without heaviness.</p></article>
             <article class="benefit-card"><strong>50 in length</strong><p>Ankle-grazing on a 5 ft 7 in model.</p></article>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="masakali-edit section-pad" aria-label="Combine with Masakali dresses">
+      <div class="container">
+        <div class="edit-head" data-reveal>
+          <div>
+            <span class="eyebrow">Combine with</span>
+            <h2>Build a yellow garden cart.</h2>
+          </div>
+          <a href="https://shopmasakali.co/collections/best-seller">View best sellers</a>
+        </div>
+        <div class="product-rail" data-reveal>
+          <a class="edit-card" href="https://shopmasakali.co/products/sage-blossom-pintuck-maxi-dress">
+            <img src="https://shopmasakali.co/cdn/shop/files/1_b57296b8-7795-48d8-ad83-6862aee5e981.jpg?format=webp&quality=70&v=1767003216&width=540" alt="Sage Blossom Pintuck Maxi Dress" width="540" height="805" loading="lazy">
+            <span class="edit-card-body"><strong>Sage Blossom Pintuck</strong><span>Rs. 1,699</span></span>
+          </a>
+          <a class="edit-card" href="https://shopmasakali.co/products/prism-play-pleated-maxi-dress">
+            <img src="https://shopmasakali.co/cdn/shop/files/frontview_e3e67442-b961-4f64-a450-93880abd4508.jpg?format=webp&quality=70&v=1771330600&width=540" alt="Teal Appeal Maxi Dress" width="540" height="805" loading="lazy">
+            <span class="edit-card-body"><strong>Teal Appeal Maxi</strong><span>Rs. 1,599</span></span>
+          </a>
+          <a class="edit-card" href="https://shopmasakali.co/products/seaside-serenity-maxi-dress">
+            <img src="https://shopmasakali.co/cdn/shop/files/3_82337653-324f-439f-928a-48703a131fd1.jpg?format=webp&quality=70&v=1771331474&width=540" alt="Seaside Serenity Maxi Dress" width="540" height="805" loading="lazy">
+            <span class="edit-card-body"><strong>Seaside Serenity</strong><span>Rs. 1,499</span></span>
+          </a>
+          <a class="edit-card" href="https://shopmasakali.co/products/emerald-ember-maxi-dress">
+            <img src="https://shopmasakali.co/cdn/shop/files/1_1c23af95-6a09-4c10-be14-c2c3b29510ae.jpg?format=webp&quality=70&v=1771331597&width=540" alt="Emerald Ember Maxi Dress" width="540" height="805" loading="lazy">
+            <span class="edit-card-body"><strong>Emerald Ember</strong><span>Rs. 1,699</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="masakali-edit section-pad" aria-label="Explore more from Masakali">
+      <div class="container">
+        <div class="edit-head" data-reveal>
+          <div>
+            <span class="eyebrow">Explore more from Masakali</span>
+            <h2>Move through the wardrobe.</h2>
+          </div>
+          <a href="https://shopmasakali.co/collections/new-arrivals">Open new arrivals</a>
+        </div>
+        <div class="collection-grid" data-reveal>
+          <a class="collection-card" href="https://shopmasakali.co/collections/short-kurtis">
+            <img src="https://shopmasakali.co/cdn/shop/files/015-10-mar-Masakali-banner-mobile_jpg.jpg?format=webp&quality=70&v=1773130454&width=540" alt="Short Kurtis collection" width="540" height="540" loading="lazy">
+            <strong>Short Kurtis</strong>
+            <span>Fusion short kurtis</span>
+          </a>
+          <a class="collection-card" href="https://shopmasakali.co/collections/new-arrivals">
+            <img src="https://shopmasakali.co/cdn/shop/files/2_424301a1-cd82-4288-81ef-9123deb8b9c2.png?format=webp&quality=70&v=1758977846&width=540" alt="New Arrivals collection" width="540" height="810" loading="lazy">
+            <strong>New Arrivals</strong>
+            <span>Newly launched</span>
+          </a>
+          <a class="collection-card" href="https://shopmasakali.co/collections/maxi-dresses">
+            <img src="https://shopmasakali.co/cdn/shop/files/SAA10420copy.jpg?format=webp&quality=70&v=1734067734&width=540" alt="Maxi Dresses collection" width="540" height="810" loading="lazy">
+            <strong>Maxi Dresses</strong>
+            <span>More maxi silhouettes</span>
+          </a>
+          <a class="collection-card" href="https://shopmasakali.co/collections/co-ords">
+            <img src="https://shopmasakali.co/cdn/shop/collections/co-ords-421216.jpg?format=webp&quality=70&v=1717579593&width=540" alt="Co-ords collection" width="540" height="540" loading="lazy">
+            <strong>Co-ords</strong>
+            <span>Matched sets</span>
+          </a>
         </div>
       </div>
     </section>
@@ -1243,70 +1310,6 @@
             <button class="tab-button size-choice" aria-pressed="false">XXXL</button>
           </div>
           <a class="btn btn-primary" href="https://shopmasakali.co/collections/best-seller/products/golden-garden-maxi-dress">Add selected size / Rs. 1,599</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="masakali-edit section-pad" aria-label="Combine with Masakali dresses">
-      <div class="container">
-        <div class="edit-head" data-reveal>
-          <div>
-            <span class="eyebrow">Combine with</span>
-            <h2>Build a yellow garden cart.</h2>
-          </div>
-          <a href="https://shopmasakali.co/collections/best-seller">View best sellers</a>
-        </div>
-        <div class="product-rail" data-reveal>
-          <a class="edit-card" href="https://shopmasakali.co/products/sage-blossom-pintuck-maxi-dress">
-            <img src="https://shopmasakali.co/cdn/shop/files/1_b57296b8-7795-48d8-ad83-6862aee5e981.jpg?format=webp&quality=70&v=1767003216&width=540" alt="Sage Blossom Pintuck Maxi Dress" width="540" height="805" loading="lazy">
-            <span class="edit-card-body"><strong>Sage Blossom Pintuck</strong><span>Rs. 1,699</span></span>
-          </a>
-          <a class="edit-card" href="https://shopmasakali.co/products/prism-play-pleated-maxi-dress">
-            <img src="https://shopmasakali.co/cdn/shop/files/frontview_e3e67442-b961-4f64-a450-93880abd4508.jpg?format=webp&quality=70&v=1771330600&width=540" alt="Teal Appeal Maxi Dress" width="540" height="805" loading="lazy">
-            <span class="edit-card-body"><strong>Teal Appeal Maxi</strong><span>Rs. 1,599</span></span>
-          </a>
-          <a class="edit-card" href="https://shopmasakali.co/products/seaside-serenity-maxi-dress">
-            <img src="https://shopmasakali.co/cdn/shop/files/3_82337653-324f-439f-928a-48703a131fd1.jpg?format=webp&quality=70&v=1771331474&width=540" alt="Seaside Serenity Maxi Dress" width="540" height="805" loading="lazy">
-            <span class="edit-card-body"><strong>Seaside Serenity</strong><span>Rs. 1,499</span></span>
-          </a>
-          <a class="edit-card" href="https://shopmasakali.co/products/emerald-ember-maxi-dress">
-            <img src="https://shopmasakali.co/cdn/shop/files/1_1c23af95-6a09-4c10-be14-c2c3b29510ae.jpg?format=webp&quality=70&v=1771331597&width=540" alt="Emerald Ember Maxi Dress" width="540" height="805" loading="lazy">
-            <span class="edit-card-body"><strong>Emerald Ember</strong><span>Rs. 1,699</span></span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="masakali-edit section-pad" aria-label="Explore more from Masakali">
-      <div class="container">
-        <div class="edit-head" data-reveal>
-          <div>
-            <span class="eyebrow">Explore more from Masakali</span>
-            <h2>Move through the wardrobe.</h2>
-          </div>
-          <a href="https://shopmasakali.co/collections/new-arrivals">Open new arrivals</a>
-        </div>
-        <div class="collection-grid" data-reveal>
-          <a class="collection-card" href="https://shopmasakali.co/collections/short-kurtis">
-            <img src="https://shopmasakali.co/cdn/shop/files/015-10-mar-Masakali-banner-mobile_jpg.jpg?format=webp&quality=70&v=1773130454&width=540" alt="Short Kurtis collection" width="540" height="540" loading="lazy">
-            <strong>Short Kurtis</strong>
-            <span>Fusion short kurtis</span>
-          </a>
-          <a class="collection-card" href="https://shopmasakali.co/collections/new-arrivals">
-            <img src="https://shopmasakali.co/cdn/shop/files/2_424301a1-cd82-4288-81ef-9123deb8b9c2.png?format=webp&quality=70&v=1758977846&width=540" alt="New Arrivals collection" width="540" height="810" loading="lazy">
-            <strong>New Arrivals</strong>
-            <span>Newly launched</span>
-          </a>
-          <a class="collection-card" href="https://shopmasakali.co/collections/maxi-dresses">
-            <img src="https://shopmasakali.co/cdn/shop/files/SAA10420copy.jpg?format=webp&quality=70&v=1734067734&width=540" alt="Maxi Dresses collection" width="540" height="810" loading="lazy">
-            <strong>Maxi Dresses</strong>
-            <span>More maxi silhouettes</span>
-          </a>
-          <a class="collection-card" href="https://shopmasakali.co/collections/co-ords">
-            <img src="https://shopmasakali.co/cdn/shop/collections/co-ords-421216.jpg?format=webp&quality=70&v=1717579593&width=540" alt="Co-ords collection" width="540" height="540" loading="lazy">
-            <strong>Co-ords</strong>
-            <span>Matched sets</span>
-          </a>
         </div>
       </div>
     </section>
