@@ -290,15 +290,29 @@
       font-size: clamp(3rem, 5.65vw, 5.05rem);
       font-weight: 700;
       line-height: 0.88;
+      filter: drop-shadow(0 14px 34px rgba(3, 76, 41, 0.08));
     }
     .hero-title .title-main,
-    .hero-title .title-accent { display: block; }
     .hero-title .title-accent {
-      color: var(--color-primary);
+      display: block;
+      width: fit-content;
+      background-size: 260% 100%;
+      background-position: 0% 50%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: titleShine 5.8s var(--ease) infinite;
+    }
+    .hero-title .title-main {
+      background-image: linear-gradient(105deg, #181813 0%, #181813 34%, #fcf3cf 45%, #fffefa 50%, #181813 62%, #181813 100%);
+    }
+    .hero-title .title-accent {
+      background-image: linear-gradient(105deg, var(--color-primary) 0%, var(--color-primary) 32%, #e5c95c 45%, #fffefa 50%, var(--color-primary) 62%, var(--color-primary) 100%);
       font-family: var(--font-serif-soft);
       font-weight: 700;
       font-style: italic;
       transform: translateX(0.055em);
+      animation-delay: 0.24s;
     }
     .hero-lede { max-width: 28rem; font-size: clamp(0.88rem, 1.3vw, 1rem); line-height: 1.38; }
     .price-row {
@@ -859,6 +873,10 @@
       0% { transform: scale(1.035); }
       18% { transform: scale(1.01); }
       100% { transform: scale(1.085); }
+    }
+    @keyframes titleShine {
+      0%, 58% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
     }
     @keyframes tagBreath {
       0% { opacity: 0; transform: translateY(-8px) scale(0.96); }
