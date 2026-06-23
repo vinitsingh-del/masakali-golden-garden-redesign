@@ -339,22 +339,23 @@
       top: 0.85rem;
       z-index: 4;
       display: grid;
-      gap: 0.25rem;
-      width: min(250px, 62%);
+      gap: 0.18rem;
+      width: min(205px, 54%);
       border: 1px solid rgba(255, 255, 255, 0.55);
       border-radius: var(--radius-sm);
       background: rgba(255, 253, 247, 0.72);
-      padding: 0.75rem;
+      padding: 0.56rem;
       backdrop-filter: blur(18px) saturate(1.25);
       -webkit-backdrop-filter: blur(18px) saturate(1.25);
+      animation: tagBreath 2800ms var(--ease) infinite;
     }
     .gallery-meta strong {
       color: var(--color-primary);
       font-family: var(--font-serif-soft);
-      font-size: 1.4rem;
+      font-size: 1.08rem;
       line-height: 0.95;
     }
-    .gallery-meta span { color: var(--color-muted); font-size: 0.74rem; font-weight: 700; }
+    .gallery-meta span { color: var(--color-muted); font-size: 0.6rem; font-weight: 700; line-height: 1.22; }
     .gallery-selectors {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
@@ -653,6 +654,109 @@
     .pricing { background: var(--color-bg); }
     .offer-card.featured { border-color: var(--color-primary); box-shadow: var(--shadow-md); }
     .offer-card .save-badge { display: inline-block; margin-bottom: 0.75rem; }
+    .masakali-edit { background: var(--color-bg); }
+    .edit-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: var(--space-3);
+    }
+    .edit-head h2 { max-width: 760px; }
+    .edit-head a {
+      color: var(--color-primary);
+      font-size: var(--text-sm);
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .product-rail {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(210px, 24vw);
+      gap: 0.85rem;
+      overflow-x: auto;
+      padding: 0 0 0.8rem;
+      scroll-snap-type: x mandatory;
+    }
+    .edit-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: rgba(255, 253, 247, 0.7);
+      scroll-snap-align: start;
+      box-shadow: var(--shadow-sm);
+    }
+    .edit-card img {
+      width: 100%;
+      aspect-ratio: 3 / 4.35;
+      object-fit: cover;
+      transition: transform 700ms var(--ease);
+    }
+    .edit-card:hover img { transform: scale(1.045); }
+    .edit-card-body {
+      display: grid;
+      gap: 0.25rem;
+      padding: 0.75rem;
+    }
+    .edit-card strong {
+      color: var(--color-primary);
+      font-family: var(--font-serif-soft);
+      font-size: 1.15rem;
+      line-height: 1;
+    }
+    .edit-card span {
+      color: var(--color-muted);
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+    .collection-grid {
+      display: grid;
+      gap: 0.85rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .collection-card {
+      position: relative;
+      min-height: 190px;
+      display: grid;
+      align-content: end;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(3, 76, 41, 0.16);
+      background: var(--color-bg-sunken);
+      padding: 0.85rem;
+      isolation: isolate;
+    }
+    .collection-card img {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 700ms var(--ease);
+    }
+    .collection-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(to top, rgba(3, 76, 41, 0.72), rgba(3, 76, 41, 0.08));
+    }
+    .collection-card:hover img { transform: scale(1.06); }
+    .collection-card strong {
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(1.45rem, 5vw, 2.6rem);
+      line-height: 0.95;
+    }
+    .collection-card span {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
     .faq { background: #fff; }
     .faq-list { display: grid; gap: 0.8rem; margin-top: var(--space-4); }
     .faq-item { border-bottom: 1px solid var(--color-border); }
@@ -736,6 +840,12 @@
       18% { transform: scale(1.01); }
       100% { transform: scale(1.085); }
     }
+    @keyframes tagBreath {
+      0% { opacity: 0; transform: translateY(-8px) scale(0.96); }
+      14% { opacity: 1; transform: translateY(0) scale(1); }
+      70% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-6px) scale(0.98); }
+    }
     @keyframes loaderLine {
       0% { transform: translateX(-105%); }
       55% { transform: translateX(80%); }
@@ -758,6 +868,7 @@
       .trust-grid { grid-template-columns: repeat(4, 1fr); }
       .hero-quote { grid-template-columns: 0.72fr 1fr; }
       .tab-panel.is-active { grid-template-columns: 0.82fr 1fr; align-items: center; }
+      .collection-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
       .footer-grid { grid-template-columns: 1.4fr 0.8fr 0.8fr 1.2fr; }
       footer { padding-bottom: var(--space-8); }
       .buy-bar { display: none; }
@@ -813,11 +924,11 @@
       .gallery-meta {
         left: var(--gutter);
         top: 0.6rem;
-        width: min(215px, 62%);
-        padding: 0.58rem;
+        width: min(168px, 48%);
+        padding: 0.42rem;
       }
-      .gallery-meta strong { font-size: 1.08rem; }
-      .gallery-meta span { font-size: 0.62rem; }
+      .gallery-meta strong { font-size: 0.82rem; }
+      .gallery-meta span { font-size: 0.48rem; line-height: 1.16; }
       .ledger {
         right: 0.55rem;
         bottom: 0.55rem;
@@ -840,6 +951,13 @@
       .process-visual { min-height: 420px; }
       .steps { grid-template-columns: 1fr; }
       .step { min-height: 132px; }
+      .edit-head { display: grid; align-items: start; margin-bottom: 1rem; }
+      .product-rail { grid-auto-columns: 178px; gap: 0.65rem; }
+      .edit-card-body { padding: 0.62rem; }
+      .edit-card strong { font-size: 0.98rem; }
+      .edit-card span { font-size: 0.66rem; }
+      .collection-grid { gap: 0.65rem; }
+      .collection-card { min-height: 150px; padding: 0.72rem; }
       .pain-card:nth-child(2),
       .pain-card:nth-child(3) { transform: none; }
       .newsletter { flex-direction: column; }
@@ -1099,6 +1217,70 @@
             <button class="tab-button size-choice" aria-pressed="false">XXXL</button>
           </div>
           <a class="btn btn-primary" href="https://shopmasakali.co/collections/best-seller/products/golden-garden-maxi-dress">Add selected size / Rs. 1,599</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="masakali-edit section-pad" aria-label="Combine with Masakali dresses">
+      <div class="container">
+        <div class="edit-head" data-reveal>
+          <div>
+            <span class="eyebrow">Combine with</span>
+            <h2>Build a yellow garden cart.</h2>
+          </div>
+          <a href="https://shopmasakali.co/collections/best-seller">View best sellers</a>
+        </div>
+        <div class="product-rail" data-reveal>
+          <a class="edit-card" href="https://shopmasakali.co/products/sage-blossom-pintuck-maxi-dress">
+            <img src="https://shopmasakali.co/cdn/shop/files/1_b57296b8-7795-48d8-ad83-6862aee5e981.jpg?format=webp&quality=70&v=1767003216&width=540" alt="Sage Blossom Pintuck Maxi Dress" width="540" height="805" loading="lazy">
+            <span class="edit-card-body"><strong>Sage Blossom Pintuck</strong><span>Rs. 1,699</span></span>
+          </a>
+          <a class="edit-card" href="https://shopmasakali.co/products/prism-play-pleated-maxi-dress">
+            <img src="https://shopmasakali.co/cdn/shop/files/frontview_e3e67442-b961-4f64-a450-93880abd4508.jpg?format=webp&quality=70&v=1771330600&width=540" alt="Teal Appeal Maxi Dress" width="540" height="805" loading="lazy">
+            <span class="edit-card-body"><strong>Teal Appeal Maxi</strong><span>Rs. 1,599</span></span>
+          </a>
+          <a class="edit-card" href="https://shopmasakali.co/products/seaside-serenity-maxi-dress">
+            <img src="https://shopmasakali.co/cdn/shop/files/3_82337653-324f-439f-928a-48703a131fd1.jpg?format=webp&quality=70&v=1771331474&width=540" alt="Seaside Serenity Maxi Dress" width="540" height="805" loading="lazy">
+            <span class="edit-card-body"><strong>Seaside Serenity</strong><span>Rs. 1,499</span></span>
+          </a>
+          <a class="edit-card" href="https://shopmasakali.co/products/emerald-ember-maxi-dress">
+            <img src="https://shopmasakali.co/cdn/shop/files/1_1c23af95-6a09-4c10-be14-c2c3b29510ae.jpg?format=webp&quality=70&v=1771331597&width=540" alt="Emerald Ember Maxi Dress" width="540" height="805" loading="lazy">
+            <span class="edit-card-body"><strong>Emerald Ember</strong><span>Rs. 1,699</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="masakali-edit section-pad" aria-label="Explore more from Masakali">
+      <div class="container">
+        <div class="edit-head" data-reveal>
+          <div>
+            <span class="eyebrow">Explore more from Masakali</span>
+            <h2>Move through the wardrobe.</h2>
+          </div>
+          <a href="https://shopmasakali.co/collections/new-arrivals">Open new arrivals</a>
+        </div>
+        <div class="collection-grid" data-reveal>
+          <a class="collection-card" href="https://shopmasakali.co/collections/short-kurtis">
+            <img src="https://shopmasakali.co/cdn/shop/files/015-10-mar-Masakali-banner-mobile_jpg.jpg?format=webp&quality=70&v=1773130454&width=540" alt="Short Kurtis collection" width="540" height="540" loading="lazy">
+            <strong>Short Kurtis</strong>
+            <span>Fusion short kurtis</span>
+          </a>
+          <a class="collection-card" href="https://shopmasakali.co/collections/new-arrivals">
+            <img src="https://shopmasakali.co/cdn/shop/files/2_424301a1-cd82-4288-81ef-9123deb8b9c2.png?format=webp&quality=70&v=1758977846&width=540" alt="New Arrivals collection" width="540" height="810" loading="lazy">
+            <strong>New Arrivals</strong>
+            <span>Newly launched</span>
+          </a>
+          <a class="collection-card" href="https://shopmasakali.co/collections/maxi-dresses">
+            <img src="https://shopmasakali.co/cdn/shop/files/SAA10420copy.jpg?format=webp&quality=70&v=1734067734&width=540" alt="Maxi Dresses collection" width="540" height="810" loading="lazy">
+            <strong>Maxi Dresses</strong>
+            <span>More maxi silhouettes</span>
+          </a>
+          <a class="collection-card" href="https://shopmasakali.co/collections/co-ords">
+            <img src="https://shopmasakali.co/cdn/shop/collections/co-ords-421216.jpg?format=webp&quality=70&v=1717579593&width=540" alt="Co-ords collection" width="540" height="540" loading="lazy">
+            <strong>Co-ords</strong>
+            <span>Matched sets</span>
+          </a>
         </div>
       </div>
     </section>
