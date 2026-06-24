@@ -284,18 +284,17 @@
     .hero .eyebrow { font-size: 0.68rem; letter-spacing: 0.16em; }
     .hero-title {
       max-width: min(660px, 100%);
-      display: grid;
-      gap: 0.03em;
+      display: block;
       font-family: var(--font-display);
-      font-size: clamp(3rem, 5.65vw, 5.05rem);
+      font-size: clamp(2.45rem, 4.5vw, 4.15rem);
       font-weight: 700;
-      line-height: 0.88;
+      line-height: 0.92;
+      white-space: nowrap;
       filter: drop-shadow(0 14px 34px rgba(3, 76, 41, 0.08));
     }
     .hero-title .title-main,
     .hero-title .title-accent {
-      display: block;
-      width: fit-content;
+      display: inline;
       background-size: 260% 100%;
       background-position: 0% 50%;
       -webkit-background-clip: text;
@@ -311,7 +310,6 @@
       font-family: var(--font-serif-soft);
       font-weight: 700;
       font-style: italic;
-      transform: translateX(0.055em);
       animation-delay: 0.24s;
     }
     .hero-lede { max-width: 28rem; font-size: clamp(0.88rem, 1.3vw, 1rem); line-height: 1.38; }
@@ -681,6 +679,46 @@
     .tab-panel { display: none; }
     .tab-panel.is-active { display: grid; gap: var(--space-3); }
     .tab-panel img { border-radius: var(--radius-md); width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+    .size-chart {
+      margin: var(--space-2) 0;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: var(--shadow-sm);
+    }
+    .size-chart table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.78rem;
+    }
+    .size-chart th,
+    .size-chart td {
+      padding: 0.62rem 0.68rem;
+      border-bottom: 1px solid rgba(226, 216, 195, 0.78);
+      text-align: left;
+      white-space: nowrap;
+    }
+    .size-chart tr:last-child td { border-bottom: 0; }
+    .size-chart th {
+      background: rgba(244, 239, 226, 0.9);
+      color: var(--color-primary);
+      font-size: 0.62rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .size-chart td:first-child {
+      color: var(--color-primary);
+      font-weight: 900;
+    }
+    .size-note {
+      max-width: 42rem;
+      margin: 0 0 var(--space-2);
+      color: var(--color-muted);
+      font-size: 0.78rem;
+      line-height: 1.45;
+    }
     .pricing { background: var(--color-bg); }
     .offer-card.featured { border-color: var(--color-primary); box-shadow: var(--shadow-md); }
     .offer-card .save-badge { display: inline-block; margin-bottom: 0.75rem; }
@@ -926,11 +964,9 @@
       .hero .eyebrow { font-size: 0.42rem; letter-spacing: 0.14em; }
       .hero-title {
         max-width: 100%;
-        gap: 0.01em;
-        font-size: clamp(1.72rem, 8.25vw, 2.24rem);
-        line-height: 0.88;
+        font-size: clamp(1.3rem, 6.1vw, 1.68rem);
+        line-height: 0.94;
       }
-      .hero-title .title-accent { transform: translateX(0.035em); }
       .hero-lede {
         display: -webkit-box;
         max-width: 22rem;
@@ -992,6 +1028,12 @@
       .process-visual { min-height: 420px; }
       .steps { grid-template-columns: 1fr; }
       .step { min-height: 132px; }
+      .size-chart { overflow: hidden; }
+      .size-chart table { min-width: 0; font-size: 0.56rem; }
+      .size-chart th,
+      .size-chart td { padding: 0.46rem 0.32rem; }
+      .size-chart th { font-size: 0.48rem; padding: 0.5rem 0.32rem; letter-spacing: 0.04em; }
+      .size-note { font-size: 0.68rem; }
       .edit-head { display: grid; align-items: start; margin-bottom: 1rem; }
       .product-rail { grid-auto-columns: 178px; gap: 0.65rem; }
       .edit-card-body { padding: 0.62rem; }
@@ -1063,7 +1105,7 @@
         <div class="hero-copy" data-reveal>
           <span class="eyebrow">Best seller / Golden Garden</span>
           <h1 class="hero-title">
-            <span class="title-main">Sunlit florals</span>
+            <span class="title-main">Sunlit florals, </span>
             <span class="title-accent">all-day ease</span>
           </h1>
           <p class="hero-lede">Yellow florals, V neckline, elbow sleeves, and a 50 in maxi fall.</p>
@@ -1324,6 +1366,28 @@
             <button class="tab-button size-choice" aria-pressed="false">XXL</button>
             <button class="tab-button size-choice" aria-pressed="false">XXXL</button>
           </div>
+          <div class="size-chart" aria-label="Size chart">
+            <table>
+              <thead>
+                <tr>
+                  <th>Size</th>
+                  <th>Bust</th>
+                  <th>Waist</th>
+                  <th>Hip</th>
+                  <th>Length</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>S</td><td>36 in</td><td>32 in</td><td>40 in</td><td>50 in</td></tr>
+                <tr><td>M</td><td>38 in</td><td>34 in</td><td>42 in</td><td>50 in</td></tr>
+                <tr><td>L</td><td>40 in</td><td>36 in</td><td>44 in</td><td>50 in</td></tr>
+                <tr><td>XL</td><td>42 in</td><td>38 in</td><td>46 in</td><td>50 in</td></tr>
+                <tr><td>XXL</td><td>44 in</td><td>40 in</td><td>48 in</td><td>50 in</td></tr>
+                <tr><td>XXXL</td><td>46 in</td><td>42 in</td><td>50 in</td><td>50 in</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="size-note">Garment guide in inches. Pick your usual Masakali size, and allow a small handcrafted tolerance.</p>
           <a class="btn btn-primary" href="https://shopmasakali.co/collections/best-seller/products/golden-garden-maxi-dress">Add selected size / Rs. 1,599</a>
         </div>
       </div>
